@@ -52,8 +52,7 @@ setInterval(createParticle, 500);
 function updateCountdown() {
     // Setting target date to 24 hours from now for demonstration
     // In a real scenario, this would be the actual birthday
-    const targetDate = new Date();
-    targetDate.setHours(targetDate.getHours() + 24);
+    const targetDate = new Date('2026-03-19T00:00:00');
 
     function calculate() {
         const now = new Date().getTime();
