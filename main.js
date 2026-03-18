@@ -70,7 +70,30 @@ function updateCountdown() {
 
         if (distance < 0) {
             clearInterval(interval);
-            document.getElementById('countdown').innerHTML = "<h2>It's Your Big Day! 🎂</h2>";
+            const countdownEl = document.getElementById('countdown');
+            countdownEl.innerHTML = `
+                <h2 class="romantic-text" style="font-size: 3.5rem; color: var(--deep-pink); animation: glow 2s infinite;">
+                    Happy Birthday Akansha! 🎂🎉✨
+                </h2>
+                <p style="font-size: 1.5rem; margin-top: 10px; color: var(--gold);">Today is all about you! ❤️</p>
+            `;
+            
+            // Trigger intense heart celebration
+            for(let i=0; i<50; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+
+            // Auto-trigger the surprise if it's not already shown
+            const surpriseBtn = document.getElementById('surprise-btn');
+            if (surpriseBtn && surpriseBtn.style.display !== 'none') {
+                surpriseBtn.click();
+            }
+
+            // Try to play music if user has interacted with the page
+            const music = document.getElementById('bg-music');
+            if (music && music.paused) {
+                music.play().catch(e => console.log("Music auto-play blocked by browser. User must interact first."));
+            }
         }
     }
 
